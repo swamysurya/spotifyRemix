@@ -1,0 +1,25 @@
+
+
+
+.login-page-background{
+    background-color: rgb(5, 23, 5);
+    min-height:100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border-style: solid;
+}
+
+.spotify-remix-logo{
+    height: 100px;
+    width: 100px;
+}
+
+.login-card{
+    border-style: solid;
+    border-radius: 10px;
+    padding: 20px;
+    height: 40%;
+    background-color: lawngreen
+}   
