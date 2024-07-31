@@ -1,25 +1,88 @@
-
-
-
-.login-page-background{
-    background-color: rgb(5, 23, 5);
-    min-height:100vh;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    border-style: solid;
+.login-page-background {
+  background-image: url("https://res.cloudinary.com/davv8r8v4/image/upload/v1722450376/spoyifyRemix/bfac52dftgdol7fp0rb0.png");
+  background-size: cover;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
-.spotify-remix-logo{
-    height: 100px;
+.login-card {
+  width: 380px;
+  background-color: #181818;
+  border-radius: 12px;
+  opacity: 0.95;
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+  align-items: center;
+}
+
+@media screen and (max-width: 568px) {
+  .login-card {
+    width: 80%;
+    padding: 40px;
+    align-self: center;
+  }
+}
+
+.spotify-remix-logo {
+  width: 100px;
+}
+
+.login-form-container {
+  padding: 20px 0px 0px 0px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: stretch;
+  gap: 15px;
+}
+
+.input-field-container {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.lable-name {
+  font-size: 12px;
+  font-weight: 600;
+  color: #ffffff;
+  line-height: 16px;
+}
+
+.input-field {
+  height: 50px;
+  padding-left: 10px;
+  border-radius: 5px;
+  outline: none;
+  font-size: 16px;
+  font-weight: 600;
+}
+
+.login-button {
+  margin-top: 10px;
+  height: 48px;
+  border-radius: 5px;
+  background-color: #1db954;
+  border: none;
+  outline: none;
+  font-weight: 700;
+  color: #ffffff;
+}
+
+@media screen and (max-width: 567px) {
+  .login-button {
     width: 100px;
+    align-self: center;
+  }
 }
 
-.login-card{
-    border-style: solid;
-    border-radius: 10px;
-    padding: 20px;
-    height: 40%;
-    background-color: lawngreen
-}   
+.error-messgae {
+  color: rgb(222, 25, 25);
+  margin: 8px;
+  font-weight: 500;
+}
