@@ -1,0 +1,7 @@
+.home-section-container {
+  display: flex;
+  flex-direction: row;
+  min-height: 100vh;
+  color: #ffffff;
+  background-color: #181818;
+}
