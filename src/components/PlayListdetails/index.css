@@ -1,0 +1,31 @@
+.specific-playlist-section {
+  background-color: hwb(0 9% 91%);
+  display: flex;
+}
+
+.back-button {
+  margin: 20px 0px 10px 20px;
+}
+
+.play-list-section {
+  background-color: black;
+  border-radius: 10px;
+  width: 90vw;
+  margin: 20px;
+  color: white;
+}
+
+.play-card-image-details {
+  display: flex;
+  flex-direction: row;
+}
+
+.card-details {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: flex-start;
+  padding-left: 20px;
+}
+
+
