@@ -1,0 +1,20 @@
+.cards-container {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  list-style-type: none;
+  padding-left: 0px;
+}
+
+.card-image {
+  width: 100px;
+}
+
+.editors-section {
+  padding-left: 20px;
+}
+
+.link-item {
+  color: #ffffff;
+  text-decoration: none;
+}
