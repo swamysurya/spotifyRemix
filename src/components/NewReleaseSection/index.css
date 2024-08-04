@@ -1,3 +1,11 @@
-.new-relsease-section-images{
-    width: 100px;
+.new-relsease-section-images {
+  width: 100px;
+}
+
+.newrelease-cards-container {
+  list-style-type: none;
+  padding-left: 0px;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
 }

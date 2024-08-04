@@ -9,7 +9,7 @@ const Home = () => {
   return (
     <div className="home-section-container">
       <SideNavBar />
-      <div>
+      <div className="sections-container">
         <EditorSection />
         <GeneresSection />
         <NewRelaseSection />

@@ -1,5 +1,8 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+
+//componets
+import Loader from "../Loader";
 import "./index.css";
 const FeaturedPlayListApiURL =
   "https://apis2.ccbp.in/spotify-clone/featured-playlists";
@@ -47,17 +50,21 @@ const EditorSection = () => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
-  const renderLoadingView = () => <h1>Loading</h1>;
+  const renderLoadingView = () => <Loader />;
   const renderSuccessView = () => {
     const { playlists } = playListResponse;
     // console.log(playlists);
     return (
       <ul className="cards-container">
         {playlists.map((eachItem) => (
-          <Link className = "link-item" key={eachItem.id} to={`/playlist/${eachItem.id}`}>
-            <li>
+          <Link
+            className="link-item"
+            key={eachItem.id}
+            to={`/playlist/${eachItem.id}`}
+          >
+            <li className="play-list-link-item">
               <img className="card-image" src={eachItem.imageUrl} />
-              <p>{eachItem.cardName}</p>
+              <p className="card-name">{eachItem.cardName}</p>
             </li>
           </Link>
         ))}
@@ -67,6 +74,7 @@ const EditorSection = () => {
   const renderFailureView = () => <h1>Failure</h1>;
 
   const renderEditorPicks = () => {
+    // const apiStatus = apiStatusConstants.loading;
     switch (apiStatus) {
       case apiStatusConstants.loading:
         return renderLoadingView();
@@ -81,8 +89,8 @@ const EditorSection = () => {
 
   return (
     <div className="editors-section">
-      <h1>Editor&apos;s picks</h1>
-      {renderEditorPicks()}
+      <h1 className="editor-heading">Editor&apos;s picks</h1>
+      <div className="render-playlist-section">{renderEditorPicks()}</div>
     </div>
   );
 };

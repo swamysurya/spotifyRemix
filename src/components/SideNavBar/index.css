@@ -4,12 +4,13 @@
   height: 100vh;
   justify-content: space-between;
   align-items: center;
-  width: 100px;
+  width: 120px;
   background-color: #040306;
 }
 
 .home-logo-link {
-  width: 100%;
+  padding-top: 30px;
+  width: 80px;
 }
 
 .logout-btn {
@@ -23,4 +24,13 @@
   font-weight: 600;
   font-size: 12px;
   color: #9b9b9b;
+}
+
+.hamberger-menu {
+  height: 25px;
+  color: white;
+  background-color: transparent;
+  outline: none;
+  border: none;
+  font-size: 30px;
 }

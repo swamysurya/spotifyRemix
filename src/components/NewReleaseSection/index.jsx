@@ -3,6 +3,8 @@ import { Link } from "react-router-dom";
 import "./index.css";
 const newReleaseApiURL = "https://apis2.ccbp.in/spotify-clone/new-releases";
 
+//components
+import Loader from "../Loader";
 //api constants
 const apiStatusConstants = {
   initial: "INITIAL",
@@ -48,24 +50,21 @@ const NewRelaseSection = () => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
-  const renderLoadingView = () => <h1>Loading</h1>;
+  const renderLoadingView = () => <Loader />;
   const renderSuccessView = () => {
     const { albums } = newRelseasesResponse;
     // console.log(playlists);
     return (
-      <ul className="cards-container">
+      <ul className="newrelease-cards-container">
         {albums.map((eachItem) => (
           <Link
             className="link-item"
             key={eachItem.id}
             to={`/albums/${eachItem.id}`}
           >
-            <li>
-              <img
-                className="new-relsease-section-images"
-                src={eachItem.imageUrl}
-              />
-              <p>{eachItem.name}</p>
+            <li className="play-list-link-item">
+              <img className="card-image" src={eachItem.imageUrl} />
+              <p className="card-name">{eachItem.name}</p>
             </li>
           </Link>
         ))}
@@ -89,8 +88,8 @@ const NewRelaseSection = () => {
 
   return (
     <div className="editors-section">
-      <h1>New releases </h1>
-      {renderNewRelseases()}
+      <h1 className="editor-heading">New releases </h1>
+      <div className="render-playlist-section">{renderNewRelseases()}</div>
     </div>
   );
 };

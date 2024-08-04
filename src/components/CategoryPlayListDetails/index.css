@@ -1,0 +1,17 @@
+.name {
+  text-align: center;
+}
+
+.adjust-height {
+  height: 210px;
+}
+
+.card-name {
+  width: 140px;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  /* border-style: solid; */
+  overflow: hidden;
+  text-align: center;
+  /* height: 40px; */
+}

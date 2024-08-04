@@ -1,8 +1,12 @@
 import { useEffect, useState } from "react";
+
 import { FaArrowLeft } from "react-icons/fa";
-import { Link, useParams } from "react-router-dom";
+import { Link, useNavigate, useParams } from "react-router-dom";
+import Loader from "../Loader";
 import SideNavBar from "../SideNavBar";
 import "./index.css";
+
+//audio player
 
 const apiStatusConstants = {
   initial: "INITIAL",
@@ -53,17 +57,22 @@ const CategoryPlayListDetails = () => {
   // for handling track
 
   //views
-  const renderLoadingView = () => <h1>loading</h1>;
+  const renderLoadingView = () => <Loader />;
   const renderSuccessView = () => {
     const { cards } = apiResponse;
     // return <h1>asjhbdihb</h1>;
     return (
-      <ul>
+      <ul className="cards-container">
         {cards.map((eachItem) => (
-          <Link key={eachItem.id} to={`/playlist/${eachItem.id}`}>
-            <li>
-              <img src={eachItem.imageUrl} />
-              <p>{eachItem.tracksCount}</p>
+          <Link
+            className="link-item"
+            key={eachItem.id}
+            to={`/playlist/${eachItem.id}`}
+          >
+            <li className="play-list-link-item adjust-height ">
+              <img className="card-image" src={eachItem.imageUrl} />
+              <p className="card-name">{eachItem.name}</p>
+              <p className="card-name">{eachItem.tracksCount} tracks</p>
             </li>
           </Link>
         ))}
@@ -85,12 +94,17 @@ const CategoryPlayListDetails = () => {
         return null;
     }
   };
+  const navigate = useNavigate();
+  //handle back button option
+  const handleBack = () => {
+    navigate("/", { replace: true });
+  };
 
   return (
     <div className="specific-playlist-section">
       <SideNavBar />
-      <div className="">
-        <button className="back-button">
+      <div>
+        <button onClick={handleBack} className="back-button">
           <FaArrowLeft />
           <span>Back</span>
         </button>

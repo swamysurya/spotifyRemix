@@ -7,14 +7,43 @@
 }
 
 .card-image {
-  width: 100px;
+  width: 140px;
+  border-radius: 10px;
 }
 
 .editors-section {
-  padding-left: 20px;
+  /* border-style: solid;
+  border-color: red; */
+  margin: 20px;
+  flex-grow: 1;
+}
+
+.editor-heading {
+  font-size: 26px;
+  font-weight: 700;
+  color: #ffffff;
+}
+
+.render-playlist-section {
+  min-height: 400px;
 }
 
 .link-item {
   color: #ffffff;
   text-decoration: none;
+  /* text-align: center; */
+}
+
+.play-list-link-item {
+  margin: 10px;
+}
+
+.card-name {
+  width: 140px;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  /* border-style: solid; */
+  overflow: hidden;
+  text-align: center;
+  /* height: 40px; */
 }

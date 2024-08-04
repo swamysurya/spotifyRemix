@@ -3,6 +3,8 @@ import { Link } from "react-router-dom";
 import "./index.css";
 const CategoriesApiURL = "https://apis2.ccbp.in/spotify-clone/categories";
 
+//components
+import Loader from "../Loader";
 //api constants
 const apiStatusConstants = {
   initial: "INITIAL",
@@ -47,14 +49,18 @@ const GeneresSection = () => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
-  const renderLoadingView = () => <h1>Loading</h1>;
+  const renderLoadingView = () => <Loader />;
   const renderSuccessView = () => {
     const { categories } = categoriesResponse;
     // console.log(playlists);
     return (
-      <ul className="cards-container">
+      <ul className="genere-cards-container">
         {categories.map((eachItem) => (
-          <Link key={eachItem.id} to={`/category/${eachItem.id}/playlists`}>
+          <Link
+            className="genere-section-card"
+            key={eachItem.id}
+            to={`/category/${eachItem.id}/playlists`}
+          >
             <li>
               <img className="Geners-section-image" src={eachItem.imageUrl} />
             </li>
@@ -66,6 +72,7 @@ const GeneresSection = () => {
   const renderFailureView = () => <h1>Failure</h1>;
 
   const renderCategory = () => {
+    // const apiStatus = apiStatusConstants.loading;
     switch (apiStatus) {
       case apiStatusConstants.loading:
         return renderLoadingView();
@@ -80,8 +87,8 @@ const GeneresSection = () => {
 
   return (
     <div className="editors-section">
-      <h1>Geners & Moods </h1>
-      {renderCategory()}
+      <h1 className="editor-heading">Geners & Moods </h1>
+      <div className="render-playlist-section">{renderCategory()}</div>
     </div>
   );
 };

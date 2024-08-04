@@ -1,13 +1,19 @@
 import Cookies from "js-cookie";
+import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import "./index.css";
 
 const SideNavBar = () => {
+  const [isHide, setHide] = useState(true);
   //handle teh logout feature
   const navigate = useNavigate();
   const handleLogout = () => {
     Cookies.remove("jwt_token");
     navigate("/", { replace: true });
+  };
+
+  const handleHambergerMenu = () => {
+    setHide((prevState) => !prevState);
   };
 
   return (
@@ -18,6 +24,7 @@ const SideNavBar = () => {
           src="https://res.cloudinary.com/davv8r8v4/image/upload/v1722416752/spoyifyRemix/navBar/llfg8i4hwxfu7tmauw5u.png"
         />
       </Link>
+
       <button className="logout-btn" onClick={handleLogout}>
         <img
           className="logout-icon"
