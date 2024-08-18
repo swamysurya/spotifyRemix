@@ -21,14 +21,15 @@
 
 @media screen and (max-width: 568px) {
   .login-card {
-    width: 80%;
-    padding: 40px;
+    width: 90%;
+    padding: 30px;
     align-self: center;
   }
 }
 
 .spotify-remix-logo {
-  width: 100px;
+  width: 30%;
+  max-width: 100px;
 }
 
 .login-form-container {
@@ -41,14 +42,22 @@
   gap: 15px;
 }
 
+
+
 .input-field-container {
   display: flex;
   flex-direction: column;
   gap: 5px;
 }
 
+@media (max-width:567px) {
+  .input-field-container{
+    gap:0px;
+  }
+}
+
 .lable-name {
-  font-size: 12px;
+  font-size: clamp(8px , 3vw, 12px);
   font-weight: 600;
   color: #ffffff;
   line-height: 16px;
@@ -59,8 +68,14 @@
   padding-left: 10px;
   border-radius: 5px;
   outline: none;
-  font-size: 16px;
+  font-size: clamp(12px , 4vw , 14px);
   font-weight: 600;
+}
+
+@media (max-width:567px) {
+  .input-field{
+    height: 40px;
+  }
 }
 
 .login-button {
@@ -74,12 +89,16 @@
   color: #ffffff;
 }
 
-@media screen and (max-width: 567px) {
-  .login-button {
-    width: 100px;
+@media screen and (max-width:567px) {
+  .login-button{
+    margin-top: 0px;
+    height: 38px;
+    width: 90px;
     align-self: center;
   }
 }
+
+
 
 .error-messgae {
   color: rgb(222, 25, 25);
