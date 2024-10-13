@@ -31,7 +31,6 @@ const AlbumDetails = () => {
 
   // track data to store
   const [currentTrackData, setTrackData] = useState({});
-  const [currentTrack, setCurrentTrack] = useState(null);
   const audioRef = useRef(null);
 
   let { id } = useParams();
