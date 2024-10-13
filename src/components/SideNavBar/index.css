@@ -4,13 +4,21 @@
   height: 100vh;
   justify-content: space-between;
   align-items: center;
-  width: 120px;
+  width: 80px;
+  position: fixed;
+  z-index: 999;
   background-color: #040306;
+}
+
+@media screen and (max-width: 768px) {
+  .nav-container {
+    display: none;
+  }
 }
 
 .home-logo-link {
   padding-top: 30px;
-  width: 80px;
+  width: 70px;
 }
 
 .logout-btn {

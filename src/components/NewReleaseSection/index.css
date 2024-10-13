@@ -1,11 +1,11 @@
 .new-relsease-section-images {
-  width: 100px;
+  width: 100%;
 }
 
 .newrelease-cards-container {
   list-style-type: none;
   padding-left: 0px;
-  display: flex;
+  /* display: flex;
   flex-direction: row;
-  flex-wrap: wrap;
+  flex-wrap: wrap; */
 }

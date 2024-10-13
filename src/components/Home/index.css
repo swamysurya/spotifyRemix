@@ -6,5 +6,13 @@
 }
 
 .sections-container {
-  padding-top: 40px;
+  padding-top: 60px;
+  width: 100%;
+}
+
+@media screen and (min-width: 769px) {
+  .sections-container {
+    padding-top: 0px;
+    padding-left: 80px;
+  }
 }

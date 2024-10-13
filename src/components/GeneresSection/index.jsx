@@ -28,7 +28,7 @@ const GeneresSection = () => {
   const fetchCategories = async () => {
     setApiStatus(apiStatusConstants.loading);
     const apiResponse = await fetch(CategoriesApiURL);
-    // console.log(apiResponse);
+    // console.log("apiResponse");
     const data = await apiResponse.json();
     // console.log(data);
     // check the fetch is done successfull or not
@@ -52,27 +52,39 @@ const GeneresSection = () => {
   const renderLoadingView = () => <Loader />;
   const renderSuccessView = () => {
     const { categories } = categoriesResponse;
-    // console.log(playlists);
+    // console.log("playlists");
     return (
-      <ul className="genere-cards-container">
+      <ul className="genere-cards-container row">
         {categories.map((eachItem) => (
-          <Link
-            className="genere-section-card"
+          <li
             key={eachItem.id}
-            to={`/category/${eachItem.id}/playlists`}
+            className="genere-section-card col-6 col-md-3 col-lg-2"
           >
-            <li>
+            <Link to={`/category/${eachItem.id}/playlists`}>
               <img className="Geners-section-image" src={eachItem.imageUrl} />
-            </li>
-          </Link>
+            </Link>
+          </li>
         ))}
       </ul>
     );
   };
-  const renderFailureView = () => <h1>Failure</h1>;
+  const renderFailureView = () => (
+    <div className="failure-container">
+      <div>
+        <img
+          className="alert-icon"
+          src="https://res.cloudinary.com/davv8r8v4/image/upload/v1725555794/spoyifyRemix/nlujog8xruvrsqbq7rgv.png"
+        />
+        <p>Something went wrong. Please try again</p>
+        <button className="try-again-button" onClick={fetchCategories}>
+          Try Again
+        </button>
+      </div>
+    </div>
+  );
 
   const renderCategory = () => {
-    // const apiStatus = apiStatusConstants.loading;
+    // const apiStatus = apiStatusConstants.failure;
     switch (apiStatus) {
       case apiStatusConstants.loading:
         return renderLoadingView();

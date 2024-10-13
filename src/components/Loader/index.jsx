@@ -1,7 +1,7 @@
 import "./index.css";
 
 const Loader = () => (
-  <div className="internal-loader-container">
+  <div className="internal-loader-container w-100">
     <img
       className="loader-image"
       src="https://res.cloudinary.com/davv8r8v4/image/upload/v1722587666/spoyifyRemix/cvilrfq4lvtqd4mv4wig.png"

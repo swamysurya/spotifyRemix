@@ -2,3 +2,19 @@
   box-sizing: border-box;
   font-family: "Roboto";
 }
+
+a {
+  color: inherit; /* Set link color to inherit from parent */
+  text-decoration: none; /* Remove underline */
+}
+
+a:visited {
+  color: inherit; /* Ensures visited link has the same color */
+}
+
+a:hover,
+a:focus,
+a:active {
+  text-decoration: none; /* Prevent underline on hover, focus, and active states */
+  color: inherit; /* Prevent color change on click */
+}

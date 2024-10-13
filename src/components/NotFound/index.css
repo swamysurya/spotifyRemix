@@ -1,0 +1,36 @@
+.not-found-container {
+  background-color: #181818;
+  height: 100vh;
+}
+
+.side-container {
+  padding-left: 80px;
+}
+
+@media screen and (max-width: 768px) {
+  .side-container {
+    padding-left: 0px;
+  }
+}
+
+.FnotFImage {
+  width: 50%;
+}
+
+.not-found {
+  height: 90vh;
+}
+
+.notfound-name {
+  font-size: 40px;
+  color: #ffffff;
+  font-weight: 700;
+  margin: 0px;
+  padding: 0px;
+}
+
+@media screen and (max-width: 768px) {
+  .notfound-name {
+    font-size: 25px;
+  }
+}

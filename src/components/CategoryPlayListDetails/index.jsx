@@ -33,6 +33,7 @@ const CategoryPlayListDetails = () => {
 
   // fetch data function
   const fetchCategoryPlayListDetails = async () => {
+    console.log("fetching");
     setApiStatus(apiStatusConstants.loading);
     const albumDetailsApiUrl = `https://apis2.ccbp.in/spotify-clone/category-playlists/${id}/`;
     const response = await fetch(albumDetailsApiUrl);
@@ -57,32 +58,58 @@ const CategoryPlayListDetails = () => {
   // for handling track
 
   //views
-  const renderLoadingView = () => <Loader />;
+  const renderLoadingView = () => (
+    <div className="internal-loader-container loader-height w-100">
+      <img
+        className="loader-image"
+        src="https://res.cloudinary.com/davv8r8v4/image/upload/v1722587666/spoyifyRemix/cvilrfq4lvtqd4mv4wig.png"
+      />
+      <p className="loading-text">Loading...</p>
+    </div>
+  );
   const renderSuccessView = () => {
     const { cards } = apiResponse;
     // return <h1>asjhbdihb</h1>;
     return (
-      <ul className="cards-container">
+      <ul className="cards-container row w-100">
         {cards.map((eachItem) => (
-          <Link
-            className="link-item"
-            key={eachItem.id}
-            to={`/playlist/${eachItem.id}`}
-          >
-            <li className="play-list-link-item adjust-height ">
+          <li className="link-item col-6 col-md-3 col-lg-2" key={eachItem.id}>
+            <Link
+              className="play-list-link-item"
+              to={`/playlist/${eachItem.id}`}
+            >
               <img className="card-image" src={eachItem.imageUrl} />
-              <p className="card-name">{eachItem.name}</p>
-              <p className="card-name">{eachItem.tracksCount} tracks</p>
-            </li>
-          </Link>
+              <div className="d-flex flex-column justify-content-center align-items-center">
+                <p className="album-name">{eachItem.name}</p>
+                <p className="track-count">{eachItem.tracksCount} tracks</p>
+              </div>
+            </Link>
+          </li>
         ))}
       </ul>
     );
   };
 
-  const renderFailureView = () => <h1>failureView</h1>;
+  const renderFailureView = () => (
+    <div className="failure-container loader-height">
+      <div>
+        <img
+          className="alert-icon"
+          src="https://res.cloudinary.com/davv8r8v4/image/upload/v1725555794/spoyifyRemix/nlujog8xruvrsqbq7rgv.png"
+        />
+        <p>Something went wrong. Please try again</p>
+        <button
+          className="try-again-button"
+          onClick={fetchCategoryPlayListDetails}
+        >
+          Try Again
+        </button>
+      </div>
+    </div>
+  );
 
   const renderPlayerDetailsView = () => {
+    // const apiStatus = apiStatusConstants.failure;
     switch (apiStatus) {
       case apiStatusConstants.loading:
         return renderLoadingView();
@@ -96,15 +123,16 @@ const CategoryPlayListDetails = () => {
   };
   const navigate = useNavigate();
   //handle back button option
-  const handleBack = () => {
+  const handleBackInCategoory = () => {
+    console.log("back to new");
     navigate("/", { replace: true });
   };
 
   return (
     <div className="specific-playlist-section">
       <SideNavBar />
-      <div>
-        <button onClick={handleBack} className="back-button">
+      <div className="playlist-details-sections">
+        <button onClick={handleBackInCategoory} className="back-button">
           <FaArrowLeft />
           <span>Back</span>
         </button>

@@ -27,6 +27,7 @@ const NewRelaseSection = () => {
 
   // fetch function
   const fetchNewReleases = async () => {
+    // console.log("new");
     setApiStatus(apiStatusConstants.loading);
     const apiResponse = await fetch(newReleaseApiURL);
     // console.log(apiResponse);
@@ -55,25 +56,35 @@ const NewRelaseSection = () => {
     const { albums } = newRelseasesResponse;
     // console.log(playlists);
     return (
-      <ul className="newrelease-cards-container">
+      <ul className="newrelease-cards-container row">
         {albums.map((eachItem) => (
-          <Link
-            className="link-item"
-            key={eachItem.id}
-            to={`/albums/${eachItem.id}`}
-          >
-            <li className="play-list-link-item">
+          <li className="link-item col-6 col-md-3 col-lg-2" key={eachItem.id}>
+            <Link className="play-list-link-item" to={`/albums/${eachItem.id}`}>
               <img className="card-image" src={eachItem.imageUrl} />
-              <p className="card-name">{eachItem.name}</p>
-            </li>
-          </Link>
+              <p className="card-name text-center">{eachItem.name}</p>
+            </Link>
+          </li>
         ))}
       </ul>
     );
   };
-  const renderFailureView = () => <h1>Failure</h1>;
+  const renderFailureView = () => (
+    <div className="failure-container">
+      <div>
+        <img
+          className="alert-icon"
+          src="https://res.cloudinary.com/davv8r8v4/image/upload/v1725555794/spoyifyRemix/nlujog8xruvrsqbq7rgv.png"
+        />
+        <p>Something went wrong. Please try again</p>
+        <button className="try-again-button" onClick={fetchNewReleases}>
+          Try Again
+        </button>
+      </div>
+    </div>
+  );
 
   const renderNewRelseases = () => {
+    // const apiStatus = apiStatusConstants.;
     switch (apiStatus) {
       case apiStatusConstants.loading:
         return renderLoadingView();

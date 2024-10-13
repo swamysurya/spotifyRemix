@@ -55,26 +55,40 @@ const EditorSection = () => {
     const { playlists } = playListResponse;
     // console.log(playlists);
     return (
-      <ul className="cards-container">
+      <ul className="cards-container row">
         {playlists.map((eachItem) => (
-          <Link
-            className="link-item"
-            key={eachItem.id}
-            to={`/playlist/${eachItem.id}`}
-          >
-            <li className="play-list-link-item">
+          <li className="link-item col-6 col-md-3 col-lg-2" key={eachItem.id}>
+            <Link
+              // we are using bootsrap grid system for media queries
+
+              className="play-list-link-item"
+              to={`/playlist/${eachItem.id}`}
+            >
               <img className="card-image" src={eachItem.imageUrl} />
-              <p className="card-name">{eachItem.cardName}</p>
-            </li>
-          </Link>
+              <p className="card-name text-center">{eachItem.cardName}</p>
+            </Link>
+          </li>
         ))}
       </ul>
     );
   };
-  const renderFailureView = () => <h1>Failure</h1>;
+  const renderFailureView = () => (
+    <div className="failure-container">
+      <div>
+        <img
+          className="alert-icon"
+          src="https://res.cloudinary.com/davv8r8v4/image/upload/v1725555794/spoyifyRemix/nlujog8xruvrsqbq7rgv.png"
+        />
+        <p>Something went wrong. Please try again</p>
+        <button className="try-again-button" onClick={fetchPlaylist}>
+          Try Again
+        </button>
+      </div>
+    </div>
+  );
 
   const renderEditorPicks = () => {
-    // const apiStatus = apiStatusConstants.loading;
+    // const apiStatus = apiStatusConstants.failure;
     switch (apiStatus) {
       case apiStatusConstants.loading:
         return renderLoadingView();
@@ -90,7 +104,7 @@ const EditorSection = () => {
   return (
     <div className="editors-section">
       <h1 className="editor-heading">Editor&apos;s picks</h1>
-      <div className="render-playlist-section">{renderEditorPicks()}</div>
+      <div className="render-playlist-section ">{renderEditorPicks()}</div>
     </div>
   );
 };

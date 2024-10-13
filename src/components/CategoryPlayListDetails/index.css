@@ -1,17 +1,18 @@
-.name {
-  text-align: center;
-}
-
-.adjust-height {
-  height: 210px;
-}
-
-.card-name {
-  width: 140px;
+.album-name {
+  padding-top: 15px;
+  font-weight: 500;
+  font-size: 1rem;
+  margin: 0px;
+  max-width: 120px;
   white-space: nowrap;
   text-overflow: ellipsis;
   /* border-style: solid; */
   overflow: hidden;
-  text-align: center;
-  /* height: 40px; */
+}
+
+.track-count {
+  font-size: 18px;
+  font-weight: 500;
+  color: #64748b;
+  margin: 0px;
 }
