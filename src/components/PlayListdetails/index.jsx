@@ -30,6 +30,9 @@ const PlayListDetails = () => {
   const [apiResponse, setApiResponse] = useState({});
   // state for api satus
   const [apiStatus, setApiStatus] = useState();
+
+  const [progress, setProgress] = useState(0.5); // Example initial progress (50%)
+
   // selected track
   const [currentTrackData, setTrackData] = useState({});
   const [isPlaying, setIsPlaying] = useState(false); // Track if music is playing
@@ -38,6 +41,10 @@ const PlayListDetails = () => {
   const [duration, setDuration] = useState(0); // Store the song duration
 
   const [volume, setVolume] = useState(1); // Track the volume level (0 to 1)
+
+  const handleProgressChange = (event) => {
+    setProgress(event.target.value);
+  };
 
   console.log(apiResponse);
   // id for fetching spec
@@ -306,6 +313,7 @@ const PlayListDetails = () => {
           <input
             className="progres-bar-styles"
             type="range"
+            id="progressBar"
             min="0"
             max={duration > 0 ? duration : 0}
             value={currentTime}
@@ -320,6 +328,7 @@ const PlayListDetails = () => {
             type="range"
             min="0"
             max="1"
+            id="volumeSlider"
             step="0.01"
             value={volume}
             onChange={handleVolumeChange}
@@ -332,6 +341,7 @@ const PlayListDetails = () => {
         src={currentTrackData.trackPreviewUrl}
         onTimeUpdate={handleTimeUpdate}
         onLoadedMetadata={handleLoadedMetadata} // Add this line
+        onEnded={() => setIsPlaying(false)} // Add this to reset play button when song ends
       />
     </div>
   );
